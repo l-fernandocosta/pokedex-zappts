@@ -16,7 +16,7 @@ import {
 
 function SectionHome() {
   const {
-    pokemonColorTypes: { fire, eletric, water },
+    pokemonColorTypes: { fire, electric, water },
   } = useTheme();
   return (
     <Container>
@@ -36,7 +36,7 @@ function SectionHome() {
 
           <ButtonNavigation
             redirectsTo={"/"}
-            color={eletric}
+            color={electric}
             Icon={EletricTypeIcon}
             title={"ELETRIC"}
           />

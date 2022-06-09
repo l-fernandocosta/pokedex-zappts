@@ -25,7 +25,7 @@ const Theme = {
     normal: "#A8A77A",
     fire: "#FB6C6C",
     water: "#6390F0",
-    eletric: "#ed893e",
+    electric: "#ed893e",
     grass: "#7AC74C",
     ice: "#96D9D6",
     fighting: "#C22E28",

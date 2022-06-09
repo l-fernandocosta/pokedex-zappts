@@ -28,7 +28,7 @@ declare module "styled-components" {
       normal: string;
       fire: string;
       water: string;
-      eletric: string;
+      electric: string;
       grass: string;
       ice: string;
       fighting: string;
