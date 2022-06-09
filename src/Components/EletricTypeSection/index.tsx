@@ -1,7 +1,7 @@
+import { ButtonChoosePokemon } from "../ButtonChoosePokemon";
 import { SectionTextField } from "../SectionTextField";
 import {
   Aside,
-  ButtonDefault,
   Container,
   EletricIcon,
   Main,
@@ -17,7 +17,7 @@ function EletricTypeSection() {
         <div />
         <img
           src={
-            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/80.png"
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/25.png"
           }
           alt={"Fire Pokemon"}
         />
@@ -37,7 +37,7 @@ function EletricTypeSection() {
             textDescription={"ROCK | GRASS"}
           />
         </TextContainer>
-        <ButtonDefault>I CHOOSE YOU</ButtonDefault>
+        <ButtonChoosePokemon pokemonName="pikachu" />
       </Aside>
     </Container>
   );

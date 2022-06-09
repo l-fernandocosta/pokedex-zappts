@@ -30,7 +30,6 @@ export const ButtonNavigate = styled.button<ButtonNavigateProps>`
     cursor: pointer;
     background-color: ${(props) => props.backgroundColor};
     color: white;
-    transform: ${(props) => props.theme.animate.elevate};
   }
 
   .iconStyled {

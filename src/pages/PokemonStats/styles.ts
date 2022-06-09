@@ -25,6 +25,7 @@ interface PokemonAvatarProps {
 }
 
 interface ColorTypeDisplay extends PokemonAvatarProps {}
+
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -35,24 +36,31 @@ export const Container = styled.div`
 export const PokemonStatsContent = styled.div`
   display: flex;
   flex-direction: row;
-
+  border-radius: 10px;
   width: 100%;
   height: 100%;
 
   padding: 0 2rem;
   margin-top: 1rem;
+
+  justify-content: center;
+  align-items: center;
 `;
 //MAIN
 export const Main = styled.main`
   display: flex;
   flex-direction: column;
+
   flex: 1;
-  padding: 1rem 2rem;
+  padding: 1rem 4rem;
 
   gap: 5rem;
-  height: 100%;
+  height: auto;
   background-color: white;
-  box-shadow: ${(props) => props.theme.shadows};
+  @media (max-width: ${(props) => props.theme.breakpoints.forPhoneOnly}) {
+    justify-content: center;
+    align-items: center;
+  }
 `;
 
 export const PokemonSpecsHeader = styled.div`
@@ -61,6 +69,13 @@ export const PokemonSpecsHeader = styled.div`
   align-items: flex-start;
   justify-content: flex-start;
   gap: 4rem;
+
+  @media (max-width: ${(props) => props.theme.breakpoints.forPhoneOnly}) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+  }
 `;
 
 export const AvatarContainer = styled.div<PokemonAvatarProps>`
@@ -104,17 +119,25 @@ export const PokemonInfoWrapper = styled.div<ColorTypeDisplay>`
 `;
 
 export const PokemonSpecsContent = styled.div`
-  div {
+  display: flex;
+  justify-content: space-between;
+
+  @media (max-width: ${(props) => props.theme.breakpoints.forPhoneOnly}) {
     display: flex;
-    justify-content: space-between;
+    flex-direction: row;
+    gap: 1rem;
+    h2 {
+      font-size: 1rem;
+      white-space: nowrap;
+    }
   }
 `;
 
 export const TextInfo = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
+  align-items: center;
+  justify-content: center;
 
   h2 {
     color: ${(props) => props.theme.colors.text.blue200};
@@ -123,14 +146,91 @@ export const TextInfo = styled.div`
     font-size: 1.5rem;
   }
 `;
+
+export const PokemonStatsContainer = styled.div`
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 50%;
+  margin-bottom: 5rem;
+`;
+
 //ASIDE
 export const Aside = styled.aside`
   display: flex;
-  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   background-color: white;
-  box-shadow: ${(props) => props.theme.shadows};
+  flex: 1;
+  height: 53rem;
+  padding: 1rem;
+  width: 100%;
+  gap: 2rem;
 
   @media (max-width: ${(props) => props.theme.breakpoints.forPhoneOnly}) {
     display: none;
+  }
+`;
+
+export const MovementsContainer = styled.div<ColorTypeDisplay>`
+  display: none;
+  @media (min-width: ${(props) => props.theme.breakpoints.forDesktop}) {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 1rem;
+
+    h1 {
+      color: ${(props) => props.theme.colors.text.blue200};
+    }
+    div {
+      display: flex;
+      flex-basis: 10%;
+      flex-direction: row;
+      flex-wrap: wrap;
+      height: 100%;
+      gap: 1rem;
+      span {
+        margin-bottom: 1rem;
+        padding: 0.5rem;
+        border: 2px solid
+          ${(props) => props.theme.pokemonColorTypes[`${props.pokemonTypeBG}`]};
+        color: ${(props) =>
+          props.theme.pokemonColorTypes[`${props.pokemonTypeBG}`]};
+      }
+    }
+  }
+`;
+export const AbilitiesContainer = styled.div<ColorTypeDisplay>`
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 100%;
+  height: 100%;
+  gap: 1rem;
+  h1 {
+    color: ${(props) => props.theme.colors.text.blue200};
+    margin-bottom: 1rem;
+  }
+
+  div {
+    display: flex;
+    gap: 1rem;
+    span {
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+      padding: 1rem 2rem;
+      border: 2px solid
+        ${(props) => props.theme.pokemonColorTypes[`${props.pokemonTypeBG}`]};
+      color: ${(props) =>
+        props.theme.pokemonColorTypes[`${props.pokemonTypeBG}`]};
+    }
   }
 `;

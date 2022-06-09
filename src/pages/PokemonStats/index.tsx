@@ -2,16 +2,19 @@ import { useQuery } from "react-query";
 import { useLocation } from "react-router-dom";
 import axios from "redaxios";
 import { PokemonProps } from "../../@types/InterfacePokemon";
-import { Header } from "../../Components/Header";
 import { LoadingComponent } from "../../Components/LoadingComponent";
+import { StatsProgressBar } from "../../Components/StatsProgressBar";
+import { LayoutPattern } from "../../layouts/LayoutPattern";
 import {
+  AbilitiesContainer,
   Aside,
   AvatarContainer,
-  Container,
   Main,
+  MovementsContainer,
   PokemonInfoWrapper,
   PokemonSpecsContent,
   PokemonSpecsHeader,
+  PokemonStatsContainer,
   PokemonStatsContent,
   TextInfo,
 } from "./styles";
@@ -25,7 +28,6 @@ function PokemonStats() {
       `https://pokeapi.co/api/v2/pokemon/${pokemonName}`
     );
     const response = result.data;
-    console.log(response);
 
     return response as PokemonProps;
   }
@@ -35,9 +37,10 @@ function PokemonStats() {
     fetchPokemonStats
   );
 
+  const resizedArrayOfMoves = data?.moves.splice(0, 30);
+
   return (
-    <Container>
-      <Header />
+    <LayoutPattern>
       {isLoading ? (
         <LoadingComponent />
       ) : (
@@ -63,24 +66,55 @@ function PokemonStats() {
                 </PokemonSpecsHeader>
 
                 <PokemonSpecsContent>
-                  <div>
-                    <TextInfo>
-                      <h2>HEIGHT</h2>
-                      <strong>{data.height}</strong>
-                    </TextInfo>
-                    <TextInfo>
-                      <h2>WEIGHT</h2>
-                      <strong>{data.weight}</strong>
-                    </TextInfo>
-                  </div>
+                  <TextInfo>
+                    <h2>HEIGHT</h2>
+                    <strong>{data.height}</strong>
+                  </TextInfo>
+                  <TextInfo>
+                    <h2>WEIGHT</h2>
+                    <strong>{data.weight}</strong>
+                  </TextInfo>
+                  <TextInfo>
+                    <h2>BASE EXP. </h2>
+                    <strong>{data.base_experience}</strong>
+                  </TextInfo>
                 </PokemonSpecsContent>
+
+                <PokemonStatsContainer>
+                  {data.stats.map((stat) => (
+                    <>
+                      <StatsProgressBar
+                        base_stat={stat.base_stat}
+                        stat={stat.stat}
+                      />
+                    </>
+                  ))}
+                </PokemonStatsContainer>
               </Main>
-              <Aside></Aside>
+
+              <Aside>
+                <MovementsContainer pokemonTypeBG={data.types[0].type.name}>
+                  <h1>MOVES</h1>
+                  <div>
+                    {resizedArrayOfMoves?.map((move) => (
+                      <span>{move.move.name}</span>
+                    ))}
+                  </div>
+                </MovementsContainer>
+                <AbilitiesContainer pokemonTypeBG={data.types[0].type.name}>
+                  <h1>ABILITIES</h1>
+                  <div>
+                    {data.abilities.map((ability) => (
+                      <span>{ability.ability.name}</span>
+                    ))}
+                  </div>
+                </AbilitiesContainer>
+              </Aside>
             </>
           )}
         </PokemonStatsContent>
       )}
-    </Container>
+    </LayoutPattern>
   );
 }
 

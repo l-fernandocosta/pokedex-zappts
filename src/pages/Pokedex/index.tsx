@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import axios from "redaxios";
 import { PokemonProps } from "../../@types/InterfacePokemon";
-import { Header } from "../../Components/Header";
 import { LoadingComponent } from "../../Components/LoadingComponent";
 import { PokemonCard } from "../../Components/PokemonCard";
 import { usePokemons } from "../../hooks/usePokemons";
-import { ButtonWrapper, Container, StyledButton, Wrapper } from "./styles";
+import { LayoutPattern } from "../../layouts/LayoutPattern";
+import { ButtonWrapper, StyledButton, Wrapper } from "./styles";
 
 function Pokedex() {
   const [pageURL, setPageURL] = useState("https://pokeapi.co/api/v2/pokemon/");
@@ -52,8 +52,7 @@ function Pokedex() {
   }, [pokemonList]);
 
   return (
-    <Container>
-      <Header />
+    <LayoutPattern>
       {isLoading ? (
         <LoadingComponent />
       ) : (
@@ -82,7 +81,7 @@ function Pokedex() {
           </Wrapper>
         </>
       )}
-    </Container>
+    </LayoutPattern>
   );
 }
 

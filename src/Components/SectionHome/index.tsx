@@ -1,9 +1,9 @@
 import { useTheme } from "styled-components";
 import { ashImage } from "../../styles/Icons/homeSectionIcons";
-import { ButtonNavigation } from "../ButtonNavigation";
+import { ButtonPokedex } from "../ButtonPokedex";
+import { PokemonLabelTypes } from "../PokemonLabelTypes";
 import {
   Aside,
-  ButtonPokedex,
   Container,
   EletricTypeIcon,
   FireTypeIcon,
@@ -27,29 +27,21 @@ function SectionHome() {
         </TextWrapper>
 
         <NavigationButtonsWrapper>
-          <ButtonNavigation
-            redirectsTo={"/"}
-            color={fire}
-            Icon={FireTypeIcon}
-            title={"FIRE"}
-          />
+          <PokemonLabelTypes color={fire} Icon={FireTypeIcon} title={"FIRE"} />
 
-          <ButtonNavigation
-            redirectsTo={"/"}
+          <PokemonLabelTypes
             color={electric}
             Icon={EletricTypeIcon}
             title={"ELETRIC"}
           />
 
-          <ButtonNavigation
-            redirectsTo={"/"}
+          <PokemonLabelTypes
             color={water}
             Icon={WaterTypeIcon}
             title={"WATER"}
           />
         </NavigationButtonsWrapper>
-
-        <ButtonPokedex>SEE POKEDEX</ButtonPokedex>
+        <ButtonPokedex />
       </Main>
       <Aside>
         <img src={ashImage} alt="" />

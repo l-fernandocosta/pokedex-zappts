@@ -1,7 +1,7 @@
+import { ButtonChoosePokemon } from "../ButtonChoosePokemon";
 import { SectionTextField } from "../SectionTextField";
 import {
   Aside,
-  ButtonDefault,
   Container,
   FireIcon,
   Main,
@@ -34,7 +34,7 @@ function FireTypeSection() {
             textDescription={"ROCK | GRASS"}
           />
         </TextContainer>
-        <ButtonDefault>I CHOOSE YOU</ButtonDefault>
+        <ButtonChoosePokemon pokemonName="charmander" />
       </Aside>
     </Container>
   );

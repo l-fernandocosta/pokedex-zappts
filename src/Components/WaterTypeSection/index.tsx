@@ -1,7 +1,7 @@
+import { ButtonChoosePokemon } from "../ButtonChoosePokemon";
 import { SectionTextField } from "../SectionTextField";
 import {
   Aside,
-  ButtonDefault,
   Container,
   Main,
   StrengthIcon,
@@ -14,7 +14,7 @@ function WaterTypeSection() {
   return (
     <Container>
       <Main>
-        <div></div>
+        <div />
         <img
           src={
             "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/8.png"
@@ -22,6 +22,7 @@ function WaterTypeSection() {
           alt={"Water Pokemon"}
         />
       </Main>
+
       <Aside>
         <TextContainer>
           <SectionTextField
@@ -36,8 +37,8 @@ function WaterTypeSection() {
             Icon={WeaknessIcon}
             textDescription={"ROCK | GRASS"}
           />
+          <ButtonChoosePokemon pokemonName="wartortle" />
         </TextContainer>
-        <ButtonDefault>I CHOOSE YOU</ButtonDefault>
       </Aside>
     </Container>
   );

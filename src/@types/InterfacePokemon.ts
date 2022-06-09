@@ -40,11 +40,15 @@ export interface Type {
   };
 }
 export interface Ability {
-  name: string;
+  ability: {
+    name: string;
+  };
 }
 
 export interface Move {
-  name: string;
+  move: {
+    name: string;
+  };
 }
 
 export interface Other {
@@ -87,13 +91,14 @@ export interface Sprite {
   versions: Version;
 }
 export interface PokemonProps {
-  abilities: Ability[];
-  moves: Move[];
   base_experience: string;
   height: number;
+  weight: number;
   id: string;
-  stats: Stat[];
   sprites: Sprite;
+  abilities: Ability[];
+  moves: Move[];
+  stats: Stat[];
   forms: Form[];
   types: Type[];
 }
