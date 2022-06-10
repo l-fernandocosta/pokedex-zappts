@@ -17,6 +17,7 @@
     "react-router-dom": "^6.3.0",
     "redaxios": "^0.5.0",
     "styled-components": "^5.3.5",
+    "vercel": "^25.1.0",
     "vite-plugin-svgr": "^2.1.0"
   },
   "devDependencies": {
