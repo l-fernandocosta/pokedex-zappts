@@ -7,6 +7,7 @@ interface Props {
   pokemonName: Form[];
   pokemonType: Type[];
   pokemonImage: Sprite;
+  typeFilter: string;
 }
 
 function PokemonCard({ id, pokemonName, pokemonType, pokemonImage }: Props) {
@@ -18,6 +19,7 @@ function PokemonCard({ id, pokemonName, pokemonType, pokemonImage }: Props) {
 
   return (
     <Container
+      key={id}
       pokemonTypeBG={pokemonType[0].type.name}
       onClick={handleNavigatePokemonStats}
     >

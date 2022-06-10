@@ -9,9 +9,9 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-  gap: 2rem;
 `;
 export const BaseStatsTitle = styled.strong`
+  white-space: nowrap;
   color: ${(props) => props.theme.colors.text.blue200};
   text-transform: uppercase;
 `;

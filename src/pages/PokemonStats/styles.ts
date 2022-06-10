@@ -148,10 +148,17 @@ export const TextInfo = styled.div`
 `;
 
 export const PokemonStatsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
   width: 50%;
-  margin-bottom: 5rem;
+  gap: 3rem;
+  margin-bottom: 2rem;
+
+  @media (max-width: ${(props) => props.theme.breakpoints.forPhoneOnly}) {
+    gap: 1rem;
+  }
 `;
 
 //ASIDE

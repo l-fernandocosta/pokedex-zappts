@@ -1,11 +1,9 @@
-import { useNavigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import { StyledButtonPokedex } from "./styles";
 
 function ButtonPokedex() {
-  const navigate = useNavigate();
-
   function handleNavigatePokedex() {
-    navigate("/pokedex");
+    Navigate({ to: "/pokedex" });
   }
   return (
     <StyledButtonPokedex onClick={handleNavigatePokedex}>

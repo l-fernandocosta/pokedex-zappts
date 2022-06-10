@@ -30,11 +30,11 @@ function EletricTypeSection() {
           />
           <SectionTextField
             Icon={StrengthIcon}
-            textDescription={" FIRE |  HATE"}
+            textDescription={" FLYING |  WATER"}
           />
           <SectionTextField
             Icon={WeaknessIcon}
-            textDescription={"ROCK | GRASS"}
+            textDescription={"GRASS | GROUND"}
           />
         </TextContainer>
         <ButtonChoosePokemon pokemonName="pikachu" />

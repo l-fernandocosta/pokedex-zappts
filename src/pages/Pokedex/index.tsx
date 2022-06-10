@@ -9,6 +9,7 @@ import { ButtonWrapper, StyledButton, Wrapper } from "./styles";
 
 function Pokedex() {
   const [pageURL, setPageURL] = useState("https://pokeapi.co/api/v2/pokemon/");
+
   const [isLoading, setIsLoading] = useState(true);
   const [defaultURL, setDefaultURL] = useState(
     "https://pokeapi.co/api/v2/pokemon/"
@@ -16,6 +17,7 @@ function Pokedex() {
 
   const { pokemonList, nextPage, previousPage } = usePokemons(defaultURL);
   const [pokemonsSpecs, setPokemonsSpecs] = useState<PokemonProps[]>([]);
+  const [selectState, setSelectState] = useState<any>("Show all");
 
   async function fetchPokemonSpec(name: string) {
     const response = await axios.get(pageURL + name);
@@ -30,7 +32,9 @@ function Pokedex() {
       Promise.all(pokemonList.map(({ name }) => fetchPokemonSpec(name))).then(
         (data: PokemonProps[]) => {
           setIsLoading(false);
+
           setPokemonsSpecs(data);
+
           return data;
         }
       );
@@ -49,7 +53,7 @@ function Pokedex() {
 
   useEffect(() => {
     getAllPokemonSpec();
-  }, [pokemonList]);
+  }, [pokemonList, selectState]);
 
   return (
     <LayoutPattern>
@@ -67,16 +71,19 @@ function Pokedex() {
             </StyledButton>
             <StyledButton onClick={handleGetNextPage}>NEXT PAGE</StyledButton>
           </ButtonWrapper>
+
           <Wrapper>
             {pokemonsSpecs.map((pokemon) => (
-              <>
+              <div key={pokemon.id}>
                 <PokemonCard
+                  typeFilter={selectState}
                   id={pokemon.id}
                   pokemonImage={pokemon.sprites}
                   pokemonName={pokemon.forms}
                   pokemonType={pokemon.types}
+                  key={pokemon.id}
                 />
-              </>
+              </div>
             ))}
           </Wrapper>
         </>

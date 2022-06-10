@@ -24,9 +24,10 @@ export const Container = styled.div`
   }
 
   @media (max-width: ${(props) => props.theme.breakpoints.forPhoneOnly}) {
+    left: 30%;
     img {
-      width: 5rem;
-      height: 5rem;
+      width: 4rem;
+      height: 4rem;
     }
   }
   @media (max-width: ${(props) => props.theme.breakpoints.forTablet}) {

@@ -27,11 +27,11 @@ function FireTypeSection() {
           <SectionTextField Icon={FireIcon} textDescription={"FIRE TYPE"} />
           <SectionTextField
             Icon={StrengthIcon}
-            textDescription={" FIRE |  HATE"}
+            textDescription={" BUG |  GRASS"}
           />
           <SectionTextField
             Icon={WeaknessIcon}
-            textDescription={"ROCK | GRASS"}
+            textDescription={"GROUND | STEEL"}
           />
         </TextContainer>
         <ButtonChoosePokemon pokemonName="charmander" />

@@ -82,12 +82,12 @@ function PokemonStats() {
 
                 <PokemonStatsContainer>
                   {data.stats.map((stat) => (
-                    <>
+                    <div>
                       <StatsProgressBar
                         base_stat={stat.base_stat}
                         stat={stat.stat}
                       />
-                    </>
+                    </div>
                   ))}
                 </PokemonStatsContainer>
               </Main>

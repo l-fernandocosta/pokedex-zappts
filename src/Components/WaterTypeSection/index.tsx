@@ -31,11 +31,11 @@ function WaterTypeSection() {
           />
           <SectionTextField
             Icon={StrengthIcon}
-            textDescription={" FIRE |  HATE"}
+            textDescription={" GROUND |  ROCK"}
           />
           <SectionTextField
             Icon={WeaknessIcon}
-            textDescription={"ROCK | GRASS"}
+            textDescription={"ELECTRIC | GRASS"}
           />
           <ButtonChoosePokemon pokemonName="wartortle" />
         </TextContainer>
