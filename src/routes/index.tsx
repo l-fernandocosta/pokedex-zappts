@@ -8,8 +8,8 @@ function AppRoutes() {
     <Routes>
       <Route element={<Home />} path="/" />
 
-      <Route element={<Pokedex />} path="/pokedex" />
-      <Route element={<PokemonStats />} path="/pokedex/:id" />
+      <Route element={<Pokedex />} path="pokedex" />
+      <Route element={<PokemonStats />} path="pokedex/:id" />
     </Routes>
   );
 }
